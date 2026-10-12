@@ -1,0 +1,72 @@
+# Déploiement de production Keystile : image publiée + Caddy (HTTPS automatique Let's Encrypt).
+#
+#   cp .env.example .env    # renseigner DOMAIN, WG_ENDPOINT, ADMIN_PASSWORD…
+#   docker compose up -d
+#
+# Prérequis : DNS de DOMAIN pointant vers ce serveur ; ports 80/tcp, 443/tcp+udp et 51820/udp ouverts.
+
+name: keystile
+
+services:
+  keystile:
+    image: ${KEYSTILE_IMAGE:-ghcr.io/keratos/keystile}:${KEYSTILE_VERSION:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PUBLIC_URL: https://${DOMAIN}
+      COOKIE_SECURE: "true"
+      HTTP_PORT: "8080"
+      # Seul Caddy, sur le réseau interne, peut transmettre l'adresse IP réelle des clients.
+      TRUSTED_PROXIES: 172.31.250.0/24
+    # Durcissement : seule la capacité réseau nécessaire à WireGuard et nftables est conservée.
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: [/tmp, /run]
+    devices:
+      - /dev/net/tun:/dev/net/tun # repli wireguard-go si le module noyau est absent
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    ports:
+      - "${WG_PORT:-51820}:${WG_PORT:-51820}/udp"
+    volumes:
+      - keystile-data:/data
+    networks: [internal]
+    logging: &logging
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
+
+  caddy:
+    image: caddy:2.11.7-alpine
+    restart: unless-stopped
+    depends_on:
+      keystile:
+        condition: service_healthy
+    environment:
+      DOMAIN: ${DOMAIN}
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: ["no-new-privileges:true"]
+    ports:
+      - "${HTTP_PUBLISH:-80}:80"
+      - "${HTTPS_PUBLISH:-443}:443"
+      - "${HTTPS_PUBLISH:-443}:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [internal]
+    logging: *logging
+
+volumes:
+  keystile-data:
+  caddy-data:
+  caddy-config:
+
+networks:
+  internal:
+    ipam:
+      config:
+        - subnet: 172.31.250.0/24

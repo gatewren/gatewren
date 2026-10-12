@@ -1,0 +1,4 @@
+# LF partout : scripts shell et fichiers copiés dans l'image Docker doivent rester en LF.
+* text=auto eol=lf
+*.png binary
+*.woff2 binary

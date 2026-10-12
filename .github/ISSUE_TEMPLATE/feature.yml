@@ -1,0 +1,15 @@
+name: Suggestion
+description: Une idée pour améliorer Keystile.
+labels: [suggestion]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Besoin
+      description: Quel problème cherchez-vous à résoudre ?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Solution envisagée
