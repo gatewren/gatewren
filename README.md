@@ -36,16 +36,20 @@ Guide complet : [docs/installation.md](docs/installation.md).
 
 ## Éditions
 
-| | Gratuite | Commerciale |
-| --- | --- | --- |
-| Utilisateurs actifs | 5 | selon la licence |
-| Appareils | 10 | selon la licence |
-| Filtrage, portail, passkeys, MFA, e-mails | oui | oui |
-| SSO OpenID Connect, LDAP / Active Directory | — | oui |
-| Support | communautaire (issues) | prioritaire |
+Prix HT, facturés annuellement.
 
-Pour une licence commerciale : dans Keystile, page **Licence**, cliquez sur « Générer l'identifiant » et
-envoyez-le avec votre nom de domaine à licences@keystile.example. La licence reçue se colle sur la même page.
+| | Gratuit | Pro | Business | Entreprise |
+| --- | --- | --- | --- | --- |
+| Prix | 0 € | 3 € / utilisateur / mois | 5 € / utilisateur / mois | sur devis |
+| Utilisateurs | jusqu'à 5 | 10 à 250 | 25 à 250 | 250 et plus |
+| Appareils | 10 au total | 3 par utilisateur | illimités | illimités |
+| Filtrage, portail, passkeys, MFA | oui | oui | oui | oui |
+| SSO OpenID Connect | — | oui | oui | oui |
+| LDAP / Active Directory | — | — | oui | oui |
+| Support | communautaire | e-mail (2 jours ouvrés) | prioritaire | SLA |
+
+Pour une licence : dans Keystile, page **Licence**, cliquez sur « Générer l'identifiant » et envoyez-le
+avec votre nom de domaine à licences@keystile.example. La licence reçue se colle sur la même page.
 
 ## Mettre à jour
 
