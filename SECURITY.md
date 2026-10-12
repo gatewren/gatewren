@@ -15,6 +15,6 @@ Seule la dernière version mineure reçoit les correctifs de sécurité. Les ima
 
 ```sh
 cosign verify ghcr.io/keystile/keystile:0.1.0 \
-  --certificate-identity-regexp 'https://github.com/keystile/' \
+  --certificate-identity-regexp '^https://github.com/keystile/keystile-app/\.github/workflows/release\.yml@refs/tags/v' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
