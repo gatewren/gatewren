@@ -9,7 +9,7 @@ name: keystile
 
 services:
   keystile:
-    image: ${KEYSTILE_IMAGE:-ghcr.io/keratos/keystile}:${KEYSTILE_VERSION:-latest}
+    image: ${KEYSTILE_IMAGE:-ghcr.io/keystile/keystile}:${KEYSTILE_VERSION:-latest}
     restart: unless-stopped
     env_file: .env
     environment:

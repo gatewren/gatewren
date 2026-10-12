@@ -14,7 +14,7 @@ Seule la dernière version mineure reçoit les correctifs de sécurité. Les ima
 (Cosign) et accompagnées d'un inventaire des composants (SBOM) :
 
 ```sh
-cosign verify ghcr.io/keratos/keystile:0.1.0 \
-  --certificate-identity-regexp 'https://github.com/keratos/' \
+cosign verify ghcr.io/keystile/keystile:0.1.0 \
+  --certificate-identity-regexp 'https://github.com/keystile/' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```

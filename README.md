@@ -14,7 +14,7 @@ s'être authentifiée.
 - **Exploitation simple** : une image Docker, HTTPS automatique, sauvegarde en une commande.
 
 Ce dépôt contient la documentation et les fichiers de déploiement. Keystile est un logiciel propriétaire
-distribué sous forme d'image Docker (`ghcr.io/keratos/keystile`), gratuite jusqu'à 5 utilisateurs.
+distribué sous forme d'image Docker (`ghcr.io/keystile/keystile`), gratuite jusqu'à 5 utilisateurs.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Prérequis : un serveur Linux avec Docker, un nom de domaine qui pointe vers lui
 
 ```sh
 mkdir keystile && cd keystile
-docker run --rm -v "$PWD:/out" ghcr.io/keratos/keystile:0.1.0 keystile init
+docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.1.0 keystile init
 cp .env.example .env
 nano .env                 # DOMAIN, WG_ENDPOINT, ADMIN_PASSWORD
 docker compose up -d
