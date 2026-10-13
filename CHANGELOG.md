@@ -2,6 +2,14 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotation [SemVer](https://semver.org/lang/fr/).
 
+## [Non publié]
+
+### Ajouté
+- Interface et e-mails en français et en anglais. Langue choisie par chaque utilisateur (Sécurité du
+  compte), sinon celle du navigateur, sinon la langue par défaut de l'instance (Réglages, ou
+  `DEFAULT_LOCALE`). Sélecteur de langue sur les pages de connexion ; langue de chaque compte
+  modifiable par un administrateur. La ligne de commande `keystile` suit la langue du terminal.
+
 ## [0.1.0] - 2026-10-12
 
 Première version.
