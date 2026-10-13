@@ -17,10 +17,13 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   `keystile init`, désactive le Caddy de Keystile ; exemples Caddy et nginx dans la documentation.
 
 ### Modifié
+- Image plus légère : 45 Mo compressée au lieu de 53 Mo.
 - `PUBLIC_URL` (ou `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : une installation
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
 
 ### Sécurité
+- Retirer un accès coupe aussitôt les connexions déjà ouvertes vers ce service (y compris un flux poussé
+  par le service), et plus seulement les nouvelles.
 - Après la suppression d'un appareil, le retour se fait toujours vers une page de ce site, jamais vers
   l'adresse d'un en-tête Referer extérieur.
 - Une règle ne peut plus couvrir l'adresse du serveur VPN lui-même : elle coupait l'accès au portail, voire
