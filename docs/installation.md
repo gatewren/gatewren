@@ -12,7 +12,7 @@
 
 ```sh
 mkdir keystile && cd keystile
-docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.1.0 keystile init
+docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.2.0 keystile init
 cp .env.example .env
 ```
 
