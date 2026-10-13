@@ -5,6 +5,12 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- Une action sensible interrompue par la confirmation d'identité est relancée automatiquement une fois
+  le mot de passe (ou la passkey) confirmé, au lieu d'être à refaire ; jamais avec un champ secret.
+- Recherche instantanée dans les listes (utilisateurs, appareils, sessions VPN) et dans tout le journal
+  (y compris par libellé d'action) ; recherche dans les choix de compte et de service de la carte.
+- Suppression depuis les listes : utilisateurs (un par un ou par sélection), appareils ; annulation d'une
+  invitation en attente ; purge du journal au-delà d'une durée et des sessions VPN terminées.
 - Déploiement derrière un proxy HTTPS existant (nginx, Caddy, Traefik…) : `compose.proxy.yaml`, livré par
   `keystile init`, désactive le Caddy de Keystile ; exemples Caddy et nginx dans la documentation.
 
@@ -13,6 +19,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
 
 ### Sécurité
+- Après la suppression d'un appareil, le retour se fait toujours vers une page de ce site, jamais vers
+  l'adresse d'un en-tête Referer extérieur.
 - Une règle ne peut plus couvrir l'adresse du serveur VPN lui-même : elle coupait l'accès au portail, voire
   le tunnel sur certains systèmes. Le message propose l'adresse interne à utiliser ; un nom d'hôte qui
   s'y résout ne la retient pas.
