@@ -5,6 +5,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- Page de connexion : illustration animée (appareils, passerelle, services ; un accès non accordé s'arrête
+  à la passerelle), fixe si le système demande de réduire les animations.
 - Une action sensible interrompue par la confirmation d'identité est relancée automatiquement une fois
   le mot de passe (ou la passkey) confirmé, au lieu d'être à refaire ; jamais avec un champ secret.
 - Recherche instantanée dans les listes (utilisateurs, appareils, sessions VPN) et dans tout le journal
