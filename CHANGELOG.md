@@ -15,7 +15,12 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   Suppressions et sorties de zone annoncées avec leur impact (qui perd quel accès), modifications
   simultanées visibles en direct, conflits signalés sans rien écraser.
 
+- Appareils : badge « À mettre à jour » quand leur configuration a changé (accès, DNS, point d'accès…)
+  depuis le dernier import ; la page de l'appareil permet de confirmer un import par QR code.
+
 ### Modifié
+- Les serveurs DNS des réglages sont joignables par tous les appareils (port 53 uniquement) et ajoutés
+  à leur tunnel partiel : plus besoin de les déclarer comme service.
 - Les pages Groupes et Destinations sont remplacées par la carte des accès ; les destinations
   existantes sont reprises automatiquement en services, avec les mêmes accès.
 
