@@ -1,0 +1,18 @@
+# Derrière un proxy HTTPS déjà installé sur la machine (nginx, Caddy, Traefik…), qui occupe 80 et 443.
+#
+#   cp compose.proxy.yaml compose.override.yaml    # fusionné automatiquement par docker compose
+#   docker compose up -d
+#
+# Le Caddy de Keystile est désactivé ; le portail écoute sur 127.0.0.1:8080, à faire relayer par votre
+# proxy pour DOMAIN (voir la documentation : en-têtes X-Forwarded-*, pas de mise en tampon du flux temps réel).
+services:
+  caddy:
+    profiles: [desactive]
+  keystile:
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      # Un proxy de la machine arrive par la passerelle du réseau interne de Keystile (172.31.250.0/24) :
+      # seule source crue pour l'adresse réelle des visiteurs. C'est aussi l'adresse à utiliser dans une
+      # règle pour joindre, par le VPN, les services de cette machine (SSH, administration…).
+      TRUSTED_PROXIES: 172.31.250.1

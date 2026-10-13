@@ -4,6 +4,19 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+### Ajouté
+- Déploiement derrière un proxy HTTPS existant (nginx, Caddy, Traefik…) : `compose.proxy.yaml`, livré par
+  `keystile init`, désactive le Caddy de Keystile ; exemples Caddy et nginx dans la documentation.
+
+### Modifié
+- `PUBLIC_URL` (ou `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : une installation
+  existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
+
+### Sécurité
+- Une règle ne peut plus couvrir l'adresse du serveur VPN lui-même : elle coupait l'accès au portail, voire
+  le tunnel sur certains systèmes. Le message propose l'adresse interne à utiliser ; un nom d'hôte qui
+  s'y résout ne la retient pas.
+
 ## [0.2.0] - 2026-10-13
 
 ### Mise à jour

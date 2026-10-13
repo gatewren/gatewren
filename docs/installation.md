@@ -45,6 +45,57 @@ docker compose logs -f keystile    # attendre « Interface wg0 prête »
    peut aussi être posée sur la carte pour un accès en propre (prestataire, exception).
 5. Chaque utilisateur ajoute ses appareils depuis **Mon accès** et importe la configuration (fichier ou QR code).
 
+## Derrière un proxy existant
+
+Si un serveur web occupe déjà les ports 80 et 443 de la machine (nginx, Caddy, Traefik…), désactivez le
+Caddy de Keystile et faites relayer le portail par ce serveur :
+
+```sh
+cp compose.proxy.yaml compose.override.yaml   # fusionné automatiquement par docker compose
+docker compose up -d
+```
+
+Le portail écoute alors sur `127.0.0.1:8080`. Ajoutez `DOMAIN` à votre proxy, avec deux exigences :
+transmettre les en-têtes `X-Forwarded-*` et ne pas mettre en tampon le flux temps réel.
+
+Caddy :
+
+```caddyfile
+vpn.exemple.fr {
+	reverse_proxy 127.0.0.1:8080 {
+		flush_interval -1
+	}
+	header Strict-Transport-Security "max-age=31536000; includeSubDomains"
+}
+```
+
+nginx (certificat géré par votre outil habituel, Certbot par exemple) :
+
+```nginx
+server {
+    listen 443 ssl;
+    server_name vpn.exemple.fr;
+    # ssl_certificate … ; ssl_certificate_key … ;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_buffering off;   # flux temps réel
+        proxy_read_timeout 1h;
+    }
+}
+```
+
+Pour joindre par le VPN les services de cette machine elle-même (SSH, outils d'administration),
+déclarez sur la carte un service avec l'adresse `172.31.250.1` (la machine vue depuis Keystile), et non
+son adresse publique : celle-ci est refusée, car elle couperait l'accès au portail, voire le tunnel.
+Le pare-feu de la machine doit accepter ce trafic venant du réseau Docker de Keystile.
+
+`PUBLIC_URL` (déduite de `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : les modifier
+dans `.env` puis redémarrer suffit, y compris sur une installation existante.
+
 ## Sauvegarder
 
 ```sh
