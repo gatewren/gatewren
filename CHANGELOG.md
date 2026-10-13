@@ -18,6 +18,11 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - Appareils : badge « À mettre à jour » quand leur configuration a changé (accès, DNS, point d'accès…)
   depuis le dernier import ; la page de l'appareil permet de confirmer un import par QR code.
 
+- Règles par nom d'hôte (`erp.entreprise.local`) : le serveur le résout avec les serveurs DNS des
+  réglages, à l'enregistrement puis toutes les 5 minutes (`RESOLVE_INTERVAL`), et ouvre les adresses
+  obtenues. DNS injoignable : dernières adresses connues conservées ; nom jamais résolu : rien n'est
+  ouvert. Pas de joker.
+
 ### Modifié
 - Les serveurs DNS des réglages sont joignables par tous les appareils (port 53 uniquement) et ajoutés
   à leur tunnel partiel : plus besoin de les déclarer comme service.
