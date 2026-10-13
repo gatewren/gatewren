@@ -9,6 +9,19 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   compte), sinon celle du navigateur, sinon la langue par défaut de l'instance (Réglages, ou
   `DEFAULT_LOCALE`). Sélecteur de langue sur les pages de connexion ; langue de chaque compte
   modifiable par un administrateur. La ligne de commande `keystile` suit la langue du terminal.
+- Carte des accès (page Accès) : groupes, personnes, services et zones sur une même carte ; on accorde
+  un accès en tirant un lien. Un service regroupe une ou plusieurs règles (réseau, protocole, ports) ;
+  une zone rassemble des services, et un accès à la zone couvre aussi ceux ajoutés plus tard.
+  Suppressions et sorties de zone annoncées avec leur impact (qui perd quel accès), modifications
+  simultanées visibles en direct, conflits signalés sans rien écraser.
+
+### Modifié
+- Les pages Groupes et Destinations sont remplacées par la carte des accès ; les destinations
+  existantes sont reprises automatiquement en services, avec les mêmes accès.
+
+### Sécurité
+- Le trafic d'un appareil VPN vers un autre est toujours bloqué, même si une règle large
+  (`10.0.0.0/8`, Internet) l'inclut.
 
 ## [0.1.0] - 2026-10-12
 
