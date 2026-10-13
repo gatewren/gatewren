@@ -38,9 +38,11 @@ docker compose logs -f keystile    # attendre « Interface wg0 prête »
 
 1. Connectez-vous à `https://<DOMAIN>` avec `admin`, changez le mot de passe et ajoutez une passkey
    ou une application d'authentification (**Sécurité du compte**). Rangez les codes de secours.
-2. **Destinations** : déclarez ce qui doit être joignable (réseau local, serveurs, Internet).
-3. **Groupes** : associez des destinations à des groupes.
-4. **Utilisateurs** : invitez vos collègues par e-mail ou créez leurs comptes, ajoutez-les aux groupes.
+2. **Utilisateurs** : invitez vos collègues par e-mail ou créez leurs comptes.
+3. **Accès** : sur la carte, créez des groupes (avec leurs membres) et des services (adresse ou réseau,
+   protocole, ports). Rangez au besoin les services dans des zones.
+4. Tirez la poignée d'un groupe vers un service ou une zone pour lui en donner l'accès. Une personne
+   peut aussi être posée sur la carte pour un accès en propre (prestataire, exception).
 5. Chaque utilisateur ajoute ses appareils depuis **Mon accès** et importe la configuration (fichier ou QR code).
 
 ## Sauvegarder
