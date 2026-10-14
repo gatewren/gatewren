@@ -42,7 +42,7 @@ Prix HT, facturés annuellement.
 | | Gratuit | Pro | Business | Entreprise |
 | --- | --- | --- | --- | --- |
 | Prix | 0 € | 3 € / utilisateur / mois | 5 € / utilisateur / mois | sur devis |
-| Utilisateurs | jusqu'à 3 | 10 à 250 | 25 à 250 | 250 et plus |
+| Utilisateurs | jusqu'à 3 | 1 à 250 | 25 à 250 | 250 et plus |
 | Appareils | 6 au total | 3 par utilisateur | illimités | illimités |
 | Filtrage, portail, passkeys, MFA | oui | oui | oui | oui |
 | SSO OpenID Connect | — | oui | oui | oui |
