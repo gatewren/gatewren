@@ -16,7 +16,16 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - Déploiement derrière un proxy HTTPS existant (nginx, Caddy, Traefik…) : `compose.proxy.yaml`, livré par
   `keystile init`, désactive le Caddy de Keystile ; exemples Caddy et nginx dans la documentation.
 
+- Licence gratuite enregistrée : une installation fonctionne 30 jours sans licence, puis demande une
+  licence gratuite (12 mois renouvelables) obtenue sur le portail client. Elle inclut 30 jours d'essai des
+  fonctions commerciales (SSO, LDAP ; 25 utilisateurs, 75 appareils). Alertes d'échéance à 30, 14 et 7 jours
+  (bandeau et e-mail aux administrateurs). Outil éditeur : `issue --edition free --trial-days 30`, et
+  `inspect` vérifie aussi les licences émises par le portail.
+
 ### Modifié
+- Édition gratuite : 3 utilisateurs, 6 appareils, sessions VPN de 12 h au plus. Sans licence après le délai,
+  ou licence expirée après sa grâce, les ajouts (comptes, appareils, services, accès) sont bloqués ; rien
+  n'est coupé (VPN, connexions, retraits et modifications fonctionnent).
 - Image plus légère : 45 Mo compressée au lieu de 53 Mo.
 - `PUBLIC_URL` (ou `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : une installation
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.

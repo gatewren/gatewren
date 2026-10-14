@@ -14,7 +14,8 @@ s'être authentifiée.
 - **Exploitation simple** : une image Docker, HTTPS automatique, sauvegarde en une commande.
 
 Ce dépôt contient la documentation et les fichiers de déploiement. Keystile est un logiciel propriétaire
-distribué sous forme d'image Docker (`ghcr.io/keystile/keystile`), gratuite jusqu'à 5 utilisateurs.
+distribué sous forme d'image Docker (`ghcr.io/keystile/keystile`), gratuite jusqu'à 3 utilisateurs
+(enregistrement obligatoire, licence de 12 mois renouvelable).
 
 ## Installation
 
@@ -41,15 +42,19 @@ Prix HT, facturés annuellement.
 | | Gratuit | Pro | Business | Entreprise |
 | --- | --- | --- | --- | --- |
 | Prix | 0 € | 3 € / utilisateur / mois | 5 € / utilisateur / mois | sur devis |
-| Utilisateurs | jusqu'à 5 | 10 à 250 | 25 à 250 | 250 et plus |
-| Appareils | 10 au total | 3 par utilisateur | illimités | illimités |
+| Utilisateurs | jusqu'à 3 | 10 à 250 | 25 à 250 | 250 et plus |
+| Appareils | 6 au total | 3 par utilisateur | illimités | illimités |
 | Filtrage, portail, passkeys, MFA | oui | oui | oui | oui |
 | SSO OpenID Connect | — | oui | oui | oui |
 | LDAP / Active Directory | — | — | oui | oui |
+| Session VPN | 12 h au plus | selon les réglages | selon les réglages | selon les réglages |
 | Support | communautaire | e-mail (2 jours ouvrés) | prioritaire | SLA |
 
-Pour une licence : dans Keystile, page **Licence**, cliquez sur « Générer l'identifiant » et envoyez-le
-avec votre nom de domaine à licences@keystile.example. La licence reçue se colle sur la même page.
+L'édition gratuite s'enregistre : sans licence, Keystile fonctionne 30 jours, puis bloque les ajouts
+(comptes, appareils, accès) sans rien couper. La licence gratuite, valable 12 mois et renouvelable, inclut
+30 jours d'essai des fonctions commerciales. Dans Keystile, page **Licence**, cliquez sur « Obtenir ma
+licence gratuite » : le portail client s'ouvre avec l'identifiant de votre instance. La licence reçue se
+colle sur la même page. Les licences payantes s'obtiennent de la même façon.
 
 ## Mettre à jour
 
