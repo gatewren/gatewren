@@ -10,6 +10,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   agent (compteurs du pare-feu et de WireGuard), jamais le contenu ni les sites visités. Conservation :
   7 jours en édition gratuite, jusqu'à 2 ans en Pro et Business ; onglet Réglages « Trafic » (arrêt de la
   mesure, durée, effacement).
+  Courbes mises à jour toutes les 10 s avec le débit du moment ; un clic sur un service ou un appareil des
+  répartitions affiche sa propre courbe.
 - Client Keystile pour Windows : bouton « Associer le client Keystile » et lien de téléchargement dans Mon
   accès, page d'ouverture de l'accès en un clic ; dans l'administration, pastille « Client Keystile » et
   dernière activité de l'appareil.
