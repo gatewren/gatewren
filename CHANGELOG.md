@@ -5,6 +5,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- Plages horaires de connexion (Pro et Business) : par groupe, avec exception par personne ; hors plage,
+  appareils coupés et ouverture de l'accès refusée (avec la prochaine ouverture) ; session arrêtée à la fin
+  de la plage ; administrateurs jamais bloqués ; fuseau horaire dans les réglages.
 - Page Analyse (Pro et Business) : tentatives bloquées par appareil (adresse, protocole, port, essais),
   rapprochées des services avec « Accorder » (personne ou groupe, impact affiché), « Créer un service » et
   « Masquer » ; accès inutilisés depuis 14 à 90 jours, à retirer en un clic. Compteur sur 24 h dans la vue
