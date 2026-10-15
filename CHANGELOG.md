@@ -5,6 +5,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- API du futur client Keystile pour Windows : association d'un poste validée dans le navigateur (la clé
+  privée reste sur le poste), jeton d'appareil, état, configuration et coupure de l'accès ; l'accès ne
+  s'ouvre jamais avec le seul jeton.
 - Page de connexion : illustration animée (appareils, passerelle, services ; un accès non accordé s'arrête
   à la passerelle), fixe si le système demande de réduire les animations.
 - Une action sensible interrompue par la confirmation d'identité est relancée automatiquement une fois
