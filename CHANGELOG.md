@@ -34,6 +34,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
 
 ### Sécurité
+- Plus de fuite IPv6 : les adresses IPv6 d'un nom accordé sont envoyées dans le tunnel (et refusées), au
+  lieu d'être jointes en direct hors VPN ; le navigateur se replie sur l'IPv4, qui passe par le tunnel. En
+  tunnel complet, tout l'IPv6 entre aussi dans le tunnel. Les appareils concernés passent « À mettre à jour ».
 - Retirer un accès coupe aussitôt les connexions déjà ouvertes vers ce service (y compris un flux poussé
   par le service), et plus seulement les nouvelles.
 - Après la suppression d'un appareil, le retour se fait toujours vers une page de ce site, jamais vers
