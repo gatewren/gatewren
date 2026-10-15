@@ -5,6 +5,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- Page Analyse (Pro et Business) : tentatives bloquées par appareil (adresse, protocole, port, essais),
+  rapprochées des services avec « Accorder » (personne ou groupe, impact affiché), « Créer un service » et
+  « Masquer » ; accès inutilisés depuis 14 à 90 jours, à retirer en un clic. Compteur sur 24 h dans la vue
+  d'ensemble, tentatives récentes sur la fiche d'un appareil.
 - Historique du trafic par appareil et par service, dans les deux sens : courbes 24 h, 7 jours et 30 jours
   sur les fiches appareil, utilisateur, service et sur le tableau de bord, avec répartitions. Mesure sans
   agent (compteurs du pare-feu et de WireGuard), jamais le contenu ni les sites visités. Conservation :
