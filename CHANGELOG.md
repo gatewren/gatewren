@@ -5,6 +5,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- Client Keystile pour Windows : bouton « Associer le client Keystile » et lien de téléchargement dans Mon
+  accès, page d'ouverture de l'accès en un clic ; dans l'administration, pastille « Client Keystile » et
+  dernière activité de l'appareil.
 - API du futur client Keystile pour Windows : association d'un poste validée dans le navigateur (la clé
   privée reste sur le poste), jeton d'appareil, état, configuration et coupure de l'accès ; l'accès ne
   s'ouvre jamais avec le seul jeton.
