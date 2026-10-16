@@ -4,6 +4,12 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+### Ajouté
+- Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
+  (aucune ressource externe), toutes les routes avec leurs schémas, exemples de code (curl, Node.js, Python,
+  PHP, Ruby, Go, C#, Java…) et essai en direct avec son jeton, sans que le jeton soit conservé par le
+  navigateur. Titres des routes, introduction et exemples en français dans le schéma OpenAPI.
+
 ### Modifié
 - Documentation de l'API présentée comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone),
   une section à la fois avec précédent et suivant, cartes, étapes et encadrés ; ouverture dans une grande
