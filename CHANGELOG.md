@@ -11,6 +11,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   navigateur. Titres des routes, introduction et exemples en français dans le schéma OpenAPI.
 
 ### Modifié
+- L'essai de 30 jours d'une licence gratuite donne accès à toutes les fonctions commerciales (analyse,
+  plages horaires, historique long, API, SSO, LDAP), pas seulement au SSO et au LDAP.
 - Guide de l'API présenté comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone), une
   section à la fois avec précédent et suivant, cartes, étapes et encadrés ; ouverture dans une grande fenêtre
   depuis Réglages > API. Il se limite aux explications (jeton, droits, erreurs, limites, versions) ; la
