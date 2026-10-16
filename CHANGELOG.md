@@ -4,6 +4,28 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+### Modifié
+- Documentation de l'API présentée comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone),
+  une section à la fois avec précédent et suivant, cartes, étapes et encadrés ; ouverture dans une grande
+  fenêtre depuis Réglages > API, recherche sur toutes les routes.
+
+## [0.3.1] - 2026-10-16
+
+### Mise à jour
+- Les jetons d'API existants sont convertis au démarrage : un jeton en lecture reçoit la lecture sur tous les
+  domaines, un jeton en écriture l'écriture (la supervision reste en lecture). Rien ne change pour les
+  intégrations en place.
+- Avant un retour à une version antérieure : révoquer ou revoir les jetons (ces versions ignorent les droits
+  par domaine et les adresses autorisées).
+
+### Ajouté
+- Jetons d'API : droits par domaine (comptes et groupes, appareils et sessions, accès et services,
+  supervision ; aucun, lecture ou écriture), liste facultative d'adresses ou de réseaux autorisés (IPv4 et
+  IPv6), modification d'un jeton existant sans changer son secret.
+- Documentation de l'API intégrée (Réglages > API > Documentation) : générée depuis le schéma de la version
+  installée, routes par domaine avec droits requis, paramètres, champs, réponses et exemples curl, recherche.
+- `/api/v1/me` renvoie les droits par domaine et les adresses autorisées du jeton.
+
 ## [0.3.0] - 2026-10-16
 
 ### Mise à jour
