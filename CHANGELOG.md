@@ -60,6 +60,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
 
 ### Corrigé
+- Noms d'hôte : une réponse DNS partielle (IPv4 trouvée, IPv6 en échec, ou l'inverse) ne vide plus la
+  famille en échec. Les adresses ne battent plus d'une résolution à l'autre, et les appareils ne rechargent
+  plus leur configuration (avec la notification « Accès mis à jour » du client) sans changement réel.
 - Un recul de l'horloge du serveur (recalage NTP, machine virtuelle) ne déconnecte plus les utilisateurs :
   la session tolère 30 s d'écart vers le futur, sa durée maximale reste vérifiée.
 
