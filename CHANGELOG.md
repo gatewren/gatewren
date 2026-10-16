@@ -11,9 +11,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   navigateur. Titres des routes, introduction et exemples en français dans le schéma OpenAPI.
 
 ### Modifié
-- Documentation de l'API présentée comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone),
-  une section à la fois avec précédent et suivant, cartes, étapes et encadrés ; ouverture dans une grande
-  fenêtre depuis Réglages > API, recherche sur toutes les routes.
+- Guide de l'API présenté comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone), une
+  section à la fois avec précédent et suivant, cartes, étapes et encadrés ; ouverture dans une grande fenêtre
+  depuis Réglages > API. Il se limite aux explications (jeton, droits, erreurs, limites, versions) ; la
+  description des routes est dans la référence interactive.
 
 ## [0.3.1] - 2026-10-16
 
