@@ -55,6 +55,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - `PUBLIC_URL` (ou `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : une installation
   existante les prend en compte au redémarrage ; les champs correspondants passent en lecture seule.
 
+### Corrigé
+- Un recul de l'horloge du serveur (recalage NTP, machine virtuelle) ne déconnecte plus les utilisateurs :
+  la session tolère 30 s d'écart vers le futur, sa durée maximale reste vérifiée.
+
 ### Sécurité
 - Plus de fuite IPv6 : les adresses IPv6 d'un nom accordé sont envoyées dans le tunnel (et refusées), au
   lieu d'être jointes en direct hors VPN ; le navigateur se replie sur l'IPv4, qui passe par le tunnel. En
