@@ -4,6 +4,16 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.3.0] - 2026-10-16
+
+### Mise à jour
+- Aucune action requise : la nouvelle table des jetons d'API est créée au démarrage, les données existantes
+  sont conservées. Mettre à jour l'image (`KEYSTILE_VERSION=0.3.0` ou `latest`) puis `docker compose up -d`.
+- Correctif de sécurité (voir « Sécurité ») : mise à jour recommandée pour toutes les installations 0.2.x.
+- Nouvelles règles : un identifiant doit contenir au moins une lettre ou un chiffre ; le dernier
+  administrateur actif ne peut plus être désactivé ni rétrogradé ; un nom d'appareil ne peut plus contenir
+  de caractère de contrôle. Les comptes et appareils existants ne sont pas modifiés.
+
 ### Ajouté
 - API publique v1 (Pro et Business) : jetons créés dans Réglages > API (lecture ou lecture et écriture,
   expiration, affichés une seule fois), limite de 120 requêtes par minute. Comptes, groupes et membres,
