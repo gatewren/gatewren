@@ -48,6 +48,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   dépliable. Carte des accès : chaque élément s'ouvre dans une fenêtre (plein écran sur téléphone) au lieu
   du panneau de droite ; les règles d'un service se modifient dans une sous-fenêtre ; fermer avec une
   saisie en cours demande confirmation.
+- Listes (utilisateurs, appareils, sessions VPN, journal, analyse) en tableaux paginés repris de l'IPBX :
+  recherche, puces de filtre avec leur nombre (administrateurs, sans MFA, désactivés…), tri par colonne,
+  10 à 100 lignes par page. Nouvel utilisateur et modification du profil dans une fenêtre (erreurs affichées
+  sans perdre la saisie) ; la fiche d'un utilisateur montre un résumé du profil.
 - Édition gratuite : 3 utilisateurs, 6 appareils, sessions VPN de 12 h au plus. Sans licence après le délai,
   ou licence expirée après sa grâce, les ajouts (comptes, appareils, services, accès) sont bloqués ; rien
   n'est coupé (VPN, connexions, retraits et modifications fonctionnent).
