@@ -43,6 +43,11 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   `inspect` vérifie aussi les licences émises par le portail.
 
 ### Modifié
+- Interface reprise de l'IPBX : formulaires en sections (réglages, fiche utilisateur, sécurité du compte,
+  licence), interrupteurs, listes à chevron, nombres à flèches ; sur téléphone, barre compacte et menu
+  dépliable. Carte des accès : chaque élément s'ouvre dans une fenêtre (plein écran sur téléphone) au lieu
+  du panneau de droite ; les règles d'un service se modifient dans une sous-fenêtre ; fermer avec une
+  saisie en cours demande confirmation.
 - Édition gratuite : 3 utilisateurs, 6 appareils, sessions VPN de 12 h au plus. Sans licence après le délai,
   ou licence expirée après sa grâce, les ajouts (comptes, appareils, services, accès) sont bloqués ; rien
   n'est coupé (VPN, connexions, retraits et modifications fonctionnent).
