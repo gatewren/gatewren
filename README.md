@@ -24,7 +24,7 @@ Prérequis : un serveur Linux avec Docker, un nom de domaine qui pointe vers lui
 
 ```sh
 mkdir keystile && cd keystile
-docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.3.0 keystile init
+docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.3.1 keystile init
 cp .env.example .env
 nano .env                 # DOMAIN, WG_ENDPOINT, ADMIN_PASSWORD
 docker compose up -d
