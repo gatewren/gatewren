@@ -5,6 +5,11 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 ## [Non publié]
 
 ### Ajouté
+- API publique v1 (Pro et Business) : jetons créés dans Réglages > API (lecture ou lecture et écriture,
+  expiration, affichés une seule fois), limite de 120 requêtes par minute. Comptes, groupes et membres,
+  plages horaires, appareils (configuration comprise), sessions VPN (liste et révocation), état de la
+  passerelle, trafic, tentatives bloquées, accès inutilisés et journal d'audit (reprise par `since_id`).
+  Erreurs au format commun, schéma OpenAPI sur `/api/v1/openapi.json`, documentation dans le README.
 - Plages horaires de connexion (Pro et Business) : par groupe, avec exception par personne ; hors plage,
   appareils coupés et ouverture de l'accès refusée (avec la prochaine ouverture) ; session arrêtée à la fin
   de la plage ; administrateurs jamais bloqués ; fuseau horaire dans les réglages.
@@ -67,6 +72,9 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   la session tolère 30 s d'écart vers le futur, sa durée maximale reste vérifiée.
 
 ### Sécurité
+- Un retour à la ligne dans le nom d'un appareil permettait d'injecter des lignes dans la configuration
+  WireGuard du serveur : les noms contenant un caractère de contrôle sont refusés et le commentaire de la
+  configuration est neutralisé.
 - Plus de fuite IPv6 : les adresses IPv6 d'un nom accordé sont envoyées dans le tunnel (et refusées), au
   lieu d'être jointes en direct hors VPN ; le navigateur se replie sur l'IPv4, qui passe par le tunnel. En
   tunnel complet, tout l'IPv6 entre aussi dans le tunnel. Les appareils concernés passent « À mettre à jour ».
