@@ -1,8 +1,8 @@
-# Portail Keystile en HTTPS (certificat Let's Encrypt obtenu et renouvelé automatiquement).
+# Portail Gatewren en HTTPS (certificat Let's Encrypt obtenu et renouvelé automatiquement).
 {$DOMAIN} {
 	encode zstd gzip
 
-	reverse_proxy keystile:8080 {
+	reverse_proxy gatewren:8080 {
 		# Flux temps réel (Server-Sent Events) : pas de mise en tampon.
 		flush_interval -1
 	}

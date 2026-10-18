@@ -1,5 +1,5 @@
 name: Suggestion
-description: Une idée pour améliorer Keystile.
+description: Une idée pour améliorer Gatewren.
 labels: [suggestion]
 body:
   - type: textarea

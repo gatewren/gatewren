@@ -2,7 +2,7 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotation [SemVer](https://semver.org/lang/fr/).
 
-## [Non publié]
+## [0.4.0] - non publiée
 
 ### Ajouté
 - Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
@@ -11,6 +11,11 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   navigateur. Titres des routes, introduction et exemples en français dans le schéma OpenAPI.
 
 ### Modifié
+- Keystile devient **Gatewren** : nouveau nom et nouveau logo (porte en arc et roitelet) dans l'interface,
+  le favicon, les e-mails (logo joint au message, sans chargement distant) et l'icône d'écran d'accueil.
+  Image `ghcr.io/gatewren/gatewren`, variables d'environnement `GATEWREN_*`, commande `gatewren`, base
+  `/data/gatewren.db`, jetons d'API `gw_…`, liens d'association du client `gatewren://`, licences `GW1`,
+  `GW2` et identifiants d'instance `GW-…`.
 - L'essai de 30 jours d'une licence gratuite donne accès à toutes les fonctions commerciales (analyse,
   plages horaires, historique long, API, SSO, LDAP), pas seulement au SSO et au LDAP.
 - Guide de l'API présenté comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone), une

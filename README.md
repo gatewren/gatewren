@@ -1,8 +1,8 @@
 <p align="center"><img src="docs/logo.svg" width="72" alt=""></p>
 
-# Keystile
+# Gatewren
 
-**Votre accès au réseau, en toute sécurité.** Keystile est une passerelle VPN WireGuard auto-hébergée :
+**Votre accès au réseau, en toute sécurité.** Gatewren est une passerelle VPN WireGuard auto-hébergée :
 chaque personne n'atteint que les réseaux, serveurs et ports qui lui sont attribués, et seulement après
 s'être authentifiée.
 
@@ -13,8 +13,8 @@ s'être authentifiée.
   état des connexions en temps réel.
 - **Exploitation simple** : une image Docker, HTTPS automatique, sauvegarde en une commande.
 
-Ce dépôt contient la documentation et les fichiers de déploiement. Keystile est un logiciel propriétaire
-distribué sous forme d'image Docker (`ghcr.io/keystile/keystile`), gratuite jusqu'à 3 utilisateurs
+Ce dépôt contient la documentation et les fichiers de déploiement. Gatewren est un logiciel propriétaire
+distribué sous forme d'image Docker (`ghcr.io/gatewren/gatewren`), gratuite jusqu'à 3 utilisateurs
 (enregistrement obligatoire, licence de 12 mois renouvelable).
 
 ## Installation
@@ -23,8 +23,8 @@ Prérequis : un serveur Linux avec Docker, un nom de domaine qui pointe vers lui
 **443/tcp+udp** et **51820/udp** ouverts.
 
 ```sh
-mkdir keystile && cd keystile
-docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.3.1 keystile init
+mkdir gatewren && cd gatewren
+docker run --rm -v "$PWD:/out" ghcr.io/gatewren/gatewren:0.4.0 gatewren init
 cp .env.example .env
 nano .env                 # DOMAIN, WG_ENDPOINT, ADMIN_PASSWORD
 docker compose up -d
@@ -50,15 +50,15 @@ Prix HT, facturés annuellement.
 | Session VPN | 12 h au plus | selon les réglages | selon les réglages | selon les réglages |
 | Support | communautaire | e-mail (2 jours ouvrés) | prioritaire | SLA |
 
-L'édition gratuite s'enregistre : sans licence, Keystile fonctionne 30 jours, puis bloque les ajouts
+L'édition gratuite s'enregistre : sans licence, Gatewren fonctionne 30 jours, puis bloque les ajouts
 (comptes, appareils, accès) sans rien couper. La licence gratuite, valable 12 mois et renouvelable, inclut
-30 jours d'essai des fonctions commerciales. Dans Keystile, page **Licence**, cliquez sur « Obtenir ma
+30 jours d'essai des fonctions commerciales. Dans Gatewren, page **Licence**, cliquez sur « Obtenir ma
 licence gratuite » : le portail client s'ouvre avec l'identifiant de votre instance. La licence reçue se
 colle sur la même page. Les licences payantes s'obtiennent de la même façon.
 
 ## Mettre à jour
 
-Changez `KEYSTILE_VERSION` dans `.env`, puis :
+Changez `GATEWREN_VERSION` dans `.env`, puis :
 
 ```sh
 docker compose pull && docker compose up -d
@@ -75,4 +75,4 @@ La base est migrée automatiquement. Les changements de chaque version sont déc
 ## Licence
 
 La documentation et les fichiers de déploiement de ce dépôt sont sous licence MIT : adaptez-les librement.
-Le logiciel Keystile (image Docker) est propriétaire et régi par son contrat de licence.
+Le logiciel Gatewren (image Docker) est propriétaire et régi par son contrat de licence.

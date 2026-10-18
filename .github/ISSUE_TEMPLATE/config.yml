@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Signaler une faille de sécurité
-    url: https://github.com/keystile/keystile/security/advisories/new
+    url: https://github.com/gatewren/gatewren/security/advisories/new
     about: Signalement privé, à ne jamais publier dans une issue.
   - name: Licence commerciale
-    url: mailto:licences@keystile.example
+    url: mailto:licences@gatewren.example
     about: Devis, licence, support prioritaire.

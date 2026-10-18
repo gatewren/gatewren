@@ -9,7 +9,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: Résultat de « docker compose exec keystile keystile version »
+      description: Résultat de « docker compose exec gatewren gatewren version »
     validations:
       required: true
   - type: textarea
