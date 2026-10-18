@@ -1,9 +1,9 @@
-# Installer Keystile
+# Installer Gatewren
 
 ## 1. Préparer le serveur
 
 - Linux 64 bits (amd64 ou arm64) avec Docker et le plugin Compose.
-- Module noyau `wireguard` (présent par défaut depuis Linux 5.6 ; sinon Keystile bascule en espace utilisateur).
+- Module noyau `wireguard` (présent par défaut depuis Linux 5.6 ; sinon Gatewren bascule en espace utilisateur).
 - Un nom de domaine, par exemple `vpn.exemple.fr`, avec un enregistrement DNS vers l'adresse publique du serveur.
 - Ports ouverts dans le pare-feu et chez l'hébergeur : `80/tcp` et `443/tcp+udp` (portail HTTPS),
   `51820/udp` (WireGuard).
@@ -11,8 +11,8 @@
 ## 2. Récupérer la pile
 
 ```sh
-mkdir keystile && cd keystile
-docker run --rm -v "$PWD:/out" ghcr.io/keystile/keystile:0.3.1 keystile init
+mkdir gatewren && cd gatewren
+docker run --rm -v "$PWD:/out" ghcr.io/gatewren/gatewren:0.4.0 gatewren init
 cp .env.example .env
 ```
 
@@ -31,7 +31,7 @@ cp .env.example .env
 
 ```sh
 docker compose up -d
-docker compose logs -f keystile    # attendre « Interface wg0 prête »
+docker compose logs -f gatewren    # attendre « Interface wg0 prête »
 ```
 
 ## 5. Premiers réglages
@@ -48,7 +48,7 @@ docker compose logs -f keystile    # attendre « Interface wg0 prête »
 ## Derrière un proxy existant
 
 Si un serveur web occupe déjà les ports 80 et 443 de la machine (nginx, Caddy, Traefik…), désactivez le
-Caddy de Keystile et faites relayer le portail par ce serveur :
+Caddy de Gatewren et faites relayer le portail par ce serveur :
 
 ```sh
 cp compose.proxy.yaml compose.override.yaml   # fusionné automatiquement par docker compose
@@ -89,9 +89,9 @@ server {
 ```
 
 Pour joindre par le VPN les services de cette machine elle-même (SSH, outils d'administration),
-déclarez sur la carte un service avec l'adresse `172.31.250.1` (la machine vue depuis Keystile), et non
+déclarez sur la carte un service avec l'adresse `172.31.250.1` (la machine vue depuis Gatewren), et non
 son adresse publique : celle-ci est refusée, car elle couperait l'accès au portail, voire le tunnel.
-Le pare-feu de la machine doit accepter ce trafic venant du réseau Docker de Keystile.
+Le pare-feu de la machine doit accepter ce trafic venant du réseau Docker de Gatewren.
 
 `PUBLIC_URL` (déduite de `DOMAIN`) et `WG_ENDPOINT` priment sur les réglages enregistrés : les modifier
 dans `.env` puis redémarrer suffit, y compris sur une installation existante.
@@ -99,10 +99,10 @@ dans `.env` puis redémarrer suffit, y compris sur une installation existante.
 ## Sauvegarder
 
 ```sh
-docker compose exec keystile keystile backup
+docker compose exec gatewren gatewren backup
 ```
 
-Sauvegardez aussi le volume `keystile-data` en entier : il contient les secrets de chiffrement et la clé
+Sauvegardez aussi le volume `gatewren-data` en entier : il contient les secrets de chiffrement et la clé
 WireGuard du serveur, indispensables à une restauration.
 
 ## Accès de secours
@@ -110,7 +110,7 @@ WireGuard du serveur, indispensables à une restauration.
 Si plus aucun administrateur ne peut se connecter :
 
 ```sh
-docker compose exec keystile keystile reset-admin admin
+docker compose exec gatewren gatewren reset-admin admin
 ```
 
 Un mot de passe temporaire est affiché ; les seconds facteurs du compte sont retirés.

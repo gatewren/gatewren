@@ -1,15 +1,15 @@
-# Déploiement de production Keystile : image publiée + Caddy (HTTPS automatique Let's Encrypt).
+# Déploiement de production Gatewren : image publiée + Caddy (HTTPS automatique Let's Encrypt).
 #
 #   cp .env.example .env    # renseigner DOMAIN, WG_ENDPOINT, ADMIN_PASSWORD…
 #   docker compose up -d
 #
 # Prérequis : DNS de DOMAIN pointant vers ce serveur ; ports 80/tcp, 443/tcp+udp et 51820/udp ouverts.
 
-name: keystile
+name: gatewren
 
 services:
-  keystile:
-    image: ${KEYSTILE_IMAGE:-ghcr.io/keystile/keystile}:${KEYSTILE_VERSION:-latest}
+  gatewren:
+    image: ${GATEWREN_IMAGE:-ghcr.io/gatewren/gatewren}:${GATEWREN_VERSION:-latest}
     restart: unless-stopped
     env_file: .env
     environment:
@@ -32,7 +32,7 @@ services:
     ports:
       - "${WG_PORT:-51820}:${WG_PORT:-51820}/udp"
     volumes:
-      - keystile-data:/data
+      - gatewren-data:/data
     networks: [internal]
     logging: &logging
       driver: json-file
@@ -42,7 +42,7 @@ services:
     image: caddy:2.11.7-alpine
     restart: unless-stopped
     depends_on:
-      keystile:
+      gatewren:
         condition: service_healthy
     environment:
       DOMAIN: ${DOMAIN}
@@ -61,7 +61,7 @@ services:
     logging: *logging
 
 volumes:
-  keystile-data:
+  gatewren-data:
   caddy-data:
   caddy-config:
 

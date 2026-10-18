@@ -2,7 +2,36 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotation [SemVer](https://semver.org/lang/fr/).
 
-## [Non publié]
+## [0.4.0] - non publiée
+
+Keystile devient **Gatewren** : nouveau nom, nouveau logo, nouvelle image. Les fonctions, les données, les
+licences et les jetons d'API sont conservés.
+
+### Mise à jour
+- Nouvelle image : `ghcr.io/gatewren/gatewren` (l'ancienne, `ghcr.io/keystile/keystile`, ne reçoit plus de
+  versions). Dans `compose.yaml`, remplacer la ligne `image:` du service par
+  `image: ${GATEWREN_IMAGE:-ghcr.io/gatewren/gatewren}:${GATEWREN_VERSION:-latest}`, puis
+  `docker compose pull && docker compose up -d`.
+- Garder le reste du `compose.yaml` existant (nom du projet, du service et du volume `keystile-data`) : le
+  modèle fourni par `gatewren init` utilise `gatewren` et `gatewren-data`, et l'adopter tel quel sur une
+  installation existante démarrerait sur un volume vide.
+- Variables d'environnement : renommer dans `.env` les variables `KEYSTILE_*` en `GATEWREN_*`
+  (`GATEWREN_VERSION`, `GATEWREN_IMAGE`, `GATEWREN_TIMEZONE`…). Le serveur lit encore les anciens noms en
+  repli, mais `compose.yaml` ne lit que ceux qu'il cite.
+- Base de données : `/data/keystile.db` est renommée `/data/gatewren.db` au premier démarrage (journaux
+  compris), sans autre action. Avant un retour à une version 0.3, la renommer en sens inverse.
+- Jetons d'API : les jetons `ks_…` existants restent valables ; les nouveaux commencent par `gw_…`. Dans
+  l'API, le champ `gatewren_client` des appareils remplace `keystile_client`, conservé (déprécié) avec la
+  même valeur.
+- Connexion : les sessions ouvertes sont conservées (le cookie de session ne change pas de nom) et la langue
+  choisie est reprise de l'ancien cookie. Seule la taille de page des tableaux, mémorisée par le navigateur,
+  revient une fois à sa valeur par défaut.
+- Commande d'exploitation : `gatewren` (`docker compose exec <service> gatewren backup`) ; `keystile` reste
+  disponible comme alias pour les sauvegardes déjà programmées.
+- Client Windows : le bouton « Associer le client » ouvre désormais un lien `gatewren://` ; il demande un
+  client Gatewren (les clients Keystile plus anciens n'ouvrent que `keystile://`).
+- Les licences, les passkeys et les codes TOTP déjà enrôlés restent valables (les applications
+  d'authentification afficheront « Gatewren » pour les nouveaux enrôlements).
 
 ### Ajouté
 - Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
@@ -11,6 +40,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
   navigateur. Titres des routes, introduction et exemples en français dans le schéma OpenAPI.
 
 ### Modifié
+- Nouveau nom et nouveau logo (porte en arc et roitelet) dans l'interface, le favicon, les e-mails (logo
+  joint au message, sans chargement distant) et l'icône d'écran d'accueil.
 - L'essai de 30 jours d'une licence gratuite donne accès à toutes les fonctions commerciales (analyse,
   plages horaires, historique long, API, SSO, LDAP), pas seulement au SSO et au LDAP.
 - Guide de l'API présenté comme les guides de l'IPBX : sommaire à gauche (tiroir sur téléphone), une
