@@ -67,10 +67,6 @@ docker compose pull && docker compose up -d
 La base est migrée automatiquement. Les changements de chaque version sont décrits dans le
 [journal des versions](CHANGELOG.md).
 
-**Vous veniez de Keystile ?** Gatewren est le nouveau nom de Keystile. Pour passer en 0.4.0, changez
-seulement la ligne `image:` de votre `compose.yaml` et renommez les variables `KEYSTILE_*` en `GATEWREN_*`
-dans `.env` ; gardez votre volume actuel. Détails dans le [journal des versions](CHANGELOG.md#040---non-publiée).
-
 ## Support et sécurité
 
 - Questions et anomalies : [issues](../../issues) (sans donnée sensible : ni clé, ni licence, ni journal complet).
