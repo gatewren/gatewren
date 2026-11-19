@@ -30,6 +30,8 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - Arrêt du conteneur : les pages ouvertes ne retardent plus l'arrêt (8 secondes au plus).
 
 ### Ajouté
+- Vue d'ensemble : panneau « Premiers pas » sur une instance neuve (personnes, groupe, service, accès, appareil), qui disparaît une fois tout fait.
+- Connexion bloquée après trop d'échecs : le message indique le nombre de minutes restantes.
 - Ajout d'un appareil directement depuis la page Appareils, en choisissant son utilisateur.
 - Version du logiciel affichée aux administrateurs en bas de la barre latérale.
 - Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
