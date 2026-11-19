@@ -2,10 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotation [SemVer](https://semver.org/lang/fr/).
 
-## [0.4.0] - non publiée
+## [0.4.0] - 2026-11-19
 
 
 ### Sécurité
+- dnspython 2.9.2 (deux failles corrigées depuis la 2.8.0).
 - SSO : un compte administrateur local n'est rattaché à l'annuaire par son adresse e-mail que si le
   fournisseur d'identité confirme cette adresse (`email_verified`).
 - Double authentification : l'activation d'une application d'authentification exige une authentification
