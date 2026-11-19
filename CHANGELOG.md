@@ -13,6 +13,11 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - Une action interrompue par une demande de ré-authentification n'est gardée pour être rejouée que si elle
   portait un jeton CSRF valide.
 - Mot de passe réinitialisé par un administrateur : les sessions VPN ouvertes du compte sont fermées.
+- API : les comptes administrateurs se gèrent dans l'interface. Un jeton « Comptes : écriture » ne peut plus
+  créer un administrateur, donner le rôle `admin`, ni modifier, inviter ou supprimer un administrateur
+  (403 `forbidden`) ; la lecture reste permise.
+- Connexion par code e-mail et mot de passe oublié : rien ne distingue plus un compte existant d'un compte
+  inconnu (contenu du cookie, délai de réponse).
 
 ### Corrigé
 - Temps réel : une page ouverte ne garde plus de connexion à la base de données ; avec une quinzaine de
