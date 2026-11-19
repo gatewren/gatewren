@@ -30,6 +30,7 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 - Arrêt du conteneur : les pages ouvertes ne retardent plus l'arrêt (8 secondes au plus).
 
 ### Ajouté
+- Version du logiciel affichée aux administrateurs en bas de la barre latérale.
 - Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
   (aucune ressource externe), toutes les routes avec leurs schémas, exemples de code (curl, Node.js, Python,
   PHP, Ruby, Go, C#, Java…) et essai en direct avec son jeton, sans que le jeton soit conservé par le
