@@ -4,6 +4,26 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [0.4.0] - non publiée
 
+
+### Sécurité
+- SSO : un compte administrateur local n'est rattaché à l'annuaire par son adresse e-mail que si le
+  fournisseur d'identité confirme cette adresse (`email_verified`).
+- Double authentification : l'activation d'une application d'authentification exige une authentification
+  récente ; le compteur de codes faux n'est plus remis à zéro par une nouvelle saisie du mot de passe.
+- Une action interrompue par une demande de ré-authentification n'est gardée pour être rejouée que si elle
+  portait un jeton CSRF valide.
+- Mot de passe réinitialisé par un administrateur : les sessions VPN ouvertes du compte sont fermées.
+
+### Corrigé
+- Temps réel : une page ouverte ne garde plus de connexion à la base de données ; avec une quinzaine de
+  pages ouvertes, l'interface et l'application des règles se bloquaient. Huit flux au plus par compte.
+- Un serveur DNS lent ou injoignable ne retarde plus l'application du pare-feu (fin de session, fin de
+  plage horaire) : les noms d'hôte des règles sont résolus à part.
+- Passerelle sans module noyau WireGuard : le lancement de `wireguard-go` ne bloque plus le démarrage ; les
+  commandes système sont bornées à 30 secondes.
+- Une erreur inattendue pendant l'application des règles s'affiche sur le tableau de bord.
+- Arrêt du conteneur : les pages ouvertes ne retardent plus l'arrêt (8 secondes au plus).
+
 ### Ajouté
 - Référence interactive de l'API (Réglages > API > Référence interactive) : Scalar embarqué dans l'image
   (aucune ressource externe), toutes les routes avec leurs schémas, exemples de code (curl, Node.js, Python,
